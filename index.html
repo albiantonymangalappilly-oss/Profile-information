@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Albi Antony, a Data Science and Mathematics student at Christ University.">
+  <title>Albi Antony | Student Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(19, 28, 49, .82);
+      --panel-solid: #131c31;
+      --text: #eef3ff;
+      --muted: #aab7d1;
+      --accent: #7c9cff;
+      --accent2: #61e3c1;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 22px 60px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(124,156,255,.20), transparent 28rem),
+        radial-gradient(circle at 90% 20%, rgba(97,227,193,.12), transparent 25rem),
+        var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11,16,32,.78); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: .04em; }
+    .brand span { color: var(--accent2); }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--text); }
+    .hero { padding: 92px 0 72px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 48px; align-items: center; }
+    .eyebrow { color: var(--accent2); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.2rem); line-height: 1.04; letter-spacing: -.055em; margin: 15px 0 20px; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 999px; font-weight: 700; border: 1px solid var(--line); }
+    .btn.primary { background: var(--accent); color: #081126; border-color: transparent; }
+    .btn:hover { transform: translateY(-2px); transition: .2s ease; }
+    .profile-card {
+      background: linear-gradient(145deg, rgba(124,156,255,.18), rgba(97,227,193,.08)), var(--panel);
+      border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow);
+    }
+    .avatar {
+      width: 112px; height: 112px; border-radius: 30px; display: grid; place-items: center;
+      font-size: 2.4rem; font-weight: 900; color: #091226;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); margin-bottom: 22px;
+    }
+    .profile-card h2 { margin: 0 0 4px; font-size: 1.35rem; }
+    .profile-card p { margin: 0; color: var(--muted); }
+    .quick-facts { display: grid; gap: 13px; margin-top: 24px; }
+    .fact { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 12px; font-size: .92rem; }
+    .fact span:first-child { color: var(--muted); }
+    section { padding: 52px 0; }
+    .section-head { margin-bottom: 25px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.035em; margin: 5px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 23px; }
+    .card h3 { margin: 0 0 8px; }
+    .card p { color: var(--muted); margin: 0; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .tag { padding: 6px 11px; border-radius: 999px; background: rgba(124,156,255,.12); border: 1px solid rgba(124,156,255,.22); color: #dce5ff; font-size: .84rem; }
+    .timeline { border-left: 2px solid rgba(124,156,255,.45); margin-left: 8px; padding-left: 24px; }
+    .timeline-item { position: relative; padding: 0 0 24px; }
+    .timeline-item::before { content: ""; position: absolute; left: -32px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 5px rgba(97,227,193,.12); }
+    .timeline-item small { color: var(--accent2); font-weight: 700; }
+    .timeline-item h3 { margin: 3px 0; }
+    .timeline-item p { color: var(--muted); margin: 0; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 25px; flex-wrap: wrap; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); padding: 25px 0 35px; font-size: .9rem; }
+    .note { color: var(--muted); font-size: .85rem; margin-top: 14px; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding-top: 65px; gap: 30px; }
+      .grid { grid-template-columns: 1fr; }
+      .navlinks { gap: 12px; font-size: .82rem; }
+      nav { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">ALBI<span>.</span></a>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#interests">Interests</a>
+          <a href="#projects">Learning</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" id="home">
+        <div>
+          <div class="eyebrow">Student • Curious learner • Future professional</div>
+          <h1>Hello, I'm<br><span>Albi Antony.</span></h1>
+          <p class="intro">
+            I am a Data Science and Mathematics student interested in using analytical thinking,
+            technology and creativity to understand problems and build useful solutions.
+            I enjoy learning new concepts, exploring data and improving my technical skills.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#about">Explore my profile</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="profile-card">
+          <div class="avatar" aria-label="Initials AA">AA</div>
+          <h2>Albi Antony</h2>
+          <p>BSc Data Science and Mathematics</p>
+          <div class="quick-facts">
+            <div class="fact"><span>University</span><strong>Christ University</strong></div>
+            <div class="fact"><span>Campus</span><strong>Central Campus</strong></div>
+            <div class="fact"><span>Based in</span><strong>Bengaluru, India</strong></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <div class="eyebrow">A little about me</div>
+          <h2>Learning with purpose.</h2>
+          <p>A short introduction to my academic interests and the way I approach learning.</p>
+        </div>
+        <div class="card">
+          <p>
+            I am pursuing a bachelor's degree in Data Science and Mathematics at Christ University.
+            My studies bring together mathematical reasoning, statistics, programming and
+            technology. I like breaking difficult topics into smaller steps, practising with
+            examples and connecting classroom concepts to real-world applications.
+          </p>
+          <p style="margin-top:12px">
+            I am continuing to build my foundation in programming, databases, artificial
+            intelligence and statistical methods. I value consistency, teamwork and the chance
+            to learn through practical activities.
+          </p>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-head">
+          <div class="eyebrow">Academic journey</div>
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <small>Undergraduate</small>
+            <h3>BSc Data Science and Mathematics</h3>
+            <p>Christ University · Central Campus, Bengaluru</p>
+            <p>Coursework includes mathematics, statistics, programming, database management and artificial intelligence.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="interests">
+        <div class="section-head">
+          <div class="eyebrow">What I explore</div>
+          <h2>Interests & skills in progress</h2>
+          <p>Areas I study, practise and want to develop further.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Data & mathematics</h3>
+            <p>Understanding data through statistics, mathematical analysis, problem-solving and logical reasoning.</p>
+            <div class="taglist"><span class="tag">Statistics</span><span class="tag">Mathematics</span><span class="tag">Data Science</span></div>
+          </article>
+          <article class="card">
+            <h3>Technology</h3>
+            <p>Developing practical knowledge of programming, databases and artificial intelligence.</p>
+            <div class="taglist"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Artificial Intelligence</span></div>
+          </article>
+          <article class="card">
+            <h3>Creative interests</h3>
+            <p>I enjoy music, dance and films, which give me ways to express creativity and stay inspired.</p>
+            <div class="taglist"><span class="tag">Music</span><span class="tag">Dance</span><span class="tag">Films</span></div>
+          </article>
+          <article class="card">
+            <h3>Languages</h3>
+            <p>I communicate in English, Malayalam and Hindi, and I am learning French.</p>
+            <div class="taglist"><span class="tag">English</span><span class="tag">Malayalam</span><span class="tag">Hindi</span><span class="tag">French</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <div class="eyebrow">Academic practice</div>
+          <h2>Learning & practical work</h2>
+          <p>A selection of areas explored through coursework and practice.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Programming foundations</h3>
+            <p>Practising Python fundamentals, problem-solving, functions, data structures and search algorithms.</p>
+          </article>
+          <article class="card">
+            <h3>Database management</h3>
+            <p>Learning relational database concepts and writing SQL queries to create, manage and retrieve data.</p>
+          </article>
+          <article class="card">
+            <h3>Statistics & analysis</h3>
+            <p>Working through estimation, hypothesis testing, sampling distributions and statistical problem-solving.</p>
+          </article>
+          <article class="card">
+            <h3>Artificial intelligence</h3>
+            <p>Studying the foundations of AI, intelligent systems and learning algorithms.</p>
+          </article>
+        </div>
+        <p class="note">These are study areas, not claims of completed professional projects. Add links to finished projects as you publish them.</p>
+      </section>
+
+      <section id="contact">
+        <div class="card contact">
+          <div>
+            <div class="eyebrow">Let's connect</div>
+            <h2 style="margin:5px 0">Have an idea or opportunity?</h2>
+            <p style="color:var(--muted);margin:0">I would be happy to connect and learn from new experiences.</p>
+          </div>
+          <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+        </div>
+        <p class="note">Before publishing, replace <strong>your.email@example.com</strong> with your actual email and add your LinkedIn, GitHub or other portfolio links if you have them.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Albi Antony · Personal Portfolio</div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
